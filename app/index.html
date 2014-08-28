@@ -1,0 +1,248 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>webpos</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+
+    </head>
+    <body>
+    <div id="bar">
+        <ul class="nav nav-pills" role="tablist">
+            <li role="presentation"><a >Let's Go</a></li>
+            <li role="presentation" class="active" ><a>主页</a></li>
+            <li role="presentation"><a>商品列表</a></li>
+            <li role="presentation"><a><span class="glyphicon glyphicon-shopping-cart"></span>购物车(<span id="car_number">0</span>)</a></li>
+        </ul>
+    </div>
+
+    <div id="home">
+        <h1>Welcome to Let's Go!</h1>
+        <button type="button" class="btn btn-primary">Let't Go!</button>
+    </div>
+    <div id="product_list">
+        <h1 style="text-align: center">商品列表</h1>
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    分类
+                </td>
+                <td>
+                    名称
+                </td>
+                <td>
+                    单价（元）
+                </td>
+                <td>
+                    单位
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    饮料
+                </td>
+                <td>
+                    可口可乐
+                </td>
+                <td>
+                    3
+                </td>
+                <td>
+                    瓶
+                </td>
+                <td>
+                    <button type="button" class="btn btn-info" id="coke">加入购物车</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    饮料
+                </td>
+                <td>
+                    雪碧
+                </td>
+                <td>
+                    3
+                </td>
+                <td>
+                    瓶
+                </td>
+                <td>
+                    <button type="button" class="btn btn-info" id="sprite">加入购物车</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    水果
+                </td>
+                <td>
+                    苹果
+                </td>
+                <td>
+                    5.5
+                </td>
+                <td>
+                    斤
+                </td>
+                <td>
+                    <button type="button" class="btn btn-info" id="apple">加入购物车</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    水果
+                </td>
+                <td>
+                    荔枝
+                </td>
+                <td>
+                    15
+                </td>
+                <td>
+                    斤
+                </td>
+                <td>
+                    <button type="button" class="btn btn-info" id="lychee">加入购物车</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    生活用平
+                </td>
+                <td>
+                    电池
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    个
+                </td>
+                <td>
+                    <button type="button" class="btn btn-info" id="battery">加入购物车</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    食品
+                </td>
+                <td>
+                    方便面
+                </td>
+                <td>
+                    4.5
+                </td>
+                <td>
+                    袋
+                </td>
+                <td>
+                    <button type="button" class="btn btn-info" id="instant_noodles">加入购物车</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="shopping_car">
+        <div style="text-align: right">总计：0.00元</div>
+        <div style="text-align: right">
+            <button type="button" class="btn btn-info">付款</button>
+        </div>
+
+    </div>
+
+    <div id="payment_page">
+        <h1>购物清单</h1>
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    分类
+                </td>
+                <td>
+                    名称
+                </td>
+                <td>
+                    单价（元）
+                </td>
+                <td>
+                    单位
+                </td>
+                <td>
+                    数量
+                </td>
+                <td>
+                    小计
+                </td>
+            </tr>
+            </table>
+        <h1>赠送商品</h1>
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    分类
+                </td>
+                <td>
+                    名称
+                </td>
+                <td>
+                    数量
+                </td>
+
+            </tr>
+        </table>
+        <div style="text-align: right">总计：0.00元</div>
+        <div style="text-align: right">节省：0.00元</div>
+        <div style="text-align: right">
+            <button type="button" class="btn btn-info">确认</button>
+        </div>
+    </div>
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+        <!-- build:js scripts/plugins.js -->
+        <script src="../bower_components/bootstrap/js/affix.js"></script>
+        <script src="../bower_components/bootstrap/js/alert.js"></script>
+        <script src="../bower_components/bootstrap/js/dropdown.js"></script>
+        <script src="../bower_components/bootstrap/js/tooltip.js"></script>
+        <script src="../bower_components/bootstrap/js/modal.js"></script>
+        <script src="../bower_components/bootstrap/js/transition.js"></script>
+        <script src="../bower_components/bootstrap/js/button.js"></script>
+        <script src="../bower_components/bootstrap/js/popover.js"></script>
+        <script src="../bower_components/bootstrap/js/carousel.js"></script>
+        <script src="../bower_components/bootstrap/js/scrollspy.js"></script>
+        <script src="../bower_components/bootstrap/js/collapse.js"></script>
+        <script src="../bower_components/bootstrap/js/tab.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+
+</body>
+</html>
