@@ -21,9 +21,9 @@
     <div id="bar">
         <ul class="nav nav-pills" role="tablist">
             <li role="presentation"><a >Let's Go</a></li>
-            <li role="presentation" class="active" ><a>主页</a></li>
-            <li role="presentation"><a>商品列表</a></li>
-            <li role="presentation"><a><span class="glyphicon glyphicon-shopping-cart"></span>购物车(<span id="car_number">0</span>)</a></li>
+            <li role="presentation" class="active" id="index"><a>主页</a></li>
+            <li role="presentation"><a id="list">商品列表</a></li>
+            <li role="presentation"><a id="shopping_cart"><span class="glyphicon glyphicon-shopping-cart" ></span>购物车(<span id="car_number">0</span>)</a></li>
         </ul>
     </div>
 
@@ -156,7 +156,8 @@
         </table>
     </div>
     <div id="shopping_car">
-        <div style="text-align: right">总计：0.00元</div>
+        <div id="items"></div>
+        <div style="text-align: right">总计：<span id="count"></span> 元</div>
         <div style="text-align: right">
             <button type="button" class="btn btn-info">付款</button>
         </div>
