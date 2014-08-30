@@ -159,52 +159,18 @@
         <div id="items"></div>
         <div style="text-align: right">总计：<span id="count"></span> 元</div>
         <div style="text-align: right">
-            <button type="button" class="btn btn-info">付款</button>
+            <button type="button" class="btn btn-info" id="payment">付款</button>
         </div>
 
     </div>
 
     <div id="payment_page">
         <h1>购物清单</h1>
-        <table class="table table-bordered">
-            <tr>
-                <td>
-                    分类
-                </td>
-                <td>
-                    名称
-                </td>
-                <td>
-                    单价（元）
-                </td>
-                <td>
-                    单位
-                </td>
-                <td>
-                    数量
-                </td>
-                <td>
-                    小计
-                </td>
-            </tr>
-            </table>
+        <p></p>
         <h1>赠送商品</h1>
-        <table class="table table-bordered">
-            <tr>
-                <td>
-                    分类
-                </td>
-                <td>
-                    名称
-                </td>
-                <td>
-                    数量
-                </td>
-
-            </tr>
-        </table>
-        <div style="text-align: right">总计：0.00元</div>
-        <div style="text-align: right">节省：0.00元</div>
+        <p></p>
+        <div style="text-align: right" id="all_counts"></div>
+        <div style="text-align: right" id="cut_count"></div>
         <div style="text-align: right">
             <button type="button" class="btn btn-info">确认</button>
         </div>
