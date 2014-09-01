@@ -1,49 +1,24 @@
 $(document).ready(function(){
-    localStorage.lists = JSON.stringify({
-        coke:0,
-        sprite:0,
-        apple:0,
-        lychee:0,
-        battery:0,
-        instant_noodles:0
-    });
-    $("#product_list").hide();
-    $("#shopping_car").hide();
-    $("#payment_page").hide();
-    $("#home").find("button").on('click',function(){
-        $("#home").hide();
-        $("#product_list").show();
-    });
-    $('#bar').find('#shopping_cart').on('click',function(){
-        var bought_list = JSON.parse(localStorage.lists);
-        $("#product_list").hide();
-        $("#payment_page").hide();
-        $("#home").hide();
-        $("#shopping_car").show();
-        show_list(bought_list);
-        change_num();
-
-    });
-    $('#bar').find('#index').on('click',function(){
-        $("#product_list").hide();
-        $("#payment_page").hide();
-        $("#shopping_car").hide();
-        $("#home").show();
-    });
-
-    $('#bar').find('#list').on('click',function(){
-        $("#payment_page").hide();
-        $("#home").hide();
-        $("#shopping_car").hide();
-        $("#product_list").show();
-    });
+    initialization();
+    show_head_bar();
 
     $('#shopping_car ').find('#payment').on('click',function(){
+        var time = new Time().get_time();
         $("#home").hide();
         $("#shopping_car").hide();
         $("#product_list").hide();
-        $("#payment_page").show();
+        $("#payment_page").show()
+            .find('#time').text(time);
         show_payment();
+    });
+
+    $('#payment_page').find('#pay').on('click',function(){
+        initialization();
+        $("#payment_page").hide();
+        $("#home").hide();
+        $("#shopping_car").hide();
+        $("#product_list").show();
+        $('#bar').find('#car_number').text(0);
     });
 
     $("#product_list").find("#coke").on('click',function(){
@@ -89,6 +64,10 @@ $(document).ready(function(){
         $('#bar').find('#car_number').text(car_number);
     });
     });
+
+
+
+
 var show_list = function(bought_list){
 
         $("#shopping_car").find("#items").html("<table class='table table-bordered'>" +
@@ -96,7 +75,7 @@ var show_list = function(bought_list){
             "</td></tr>"+
             "<tr id='drinks'><<td>名称</td><td>单价（元）</td><td>单位</td><td>数量</td><td>小计</td></tr>"+
             "<tr id='car_coke'><td>可口可乐</td><td>3</td><td>瓶</td><td><button id='coke_lower'>-</button><span  id='coke_num'></span><button id='coke_add'>+</button></td><td id='coke_count'> </td></tr>"+
-            "<tr id='car_sprite'><td>雪碧</td><td>3</td><td>瓶</td><td><button id='sprite_lower'>-</button><span  id='sprite_num'></span><button id='sprite_add'>+</button></td><td id='sprite_count'></td></tr>"+
+            "<tr id='car_sprite'><td>雪碧</td><td>3</td><td>瓶</td><td><button id='sprite_lower'>-</buttons><span  id='sprite_num'></span><button id='sprite_add'>+</button></td><td id='sprite_count'></td></tr>"+
             "<tr id='fruits'><td>" +"<h2>"+'水果'+"</h1>"+
             "</td></tr>"+
             "<tr id='fruits'><<td>名称</td><td>单价（元）</td><td>单位</td><td>数量</td><td>小计</td></tr>"+
@@ -219,7 +198,7 @@ var show_payment = function() {
     }
     $("#payment_page").find('span#sprite_num').text(bought_list.sprite);
     if(bought_list.sprite >=3){
-        sprite_cunt = parseInt(bought_list.sprite/3)*3;
+        sprite_cut = parseInt(bought_list.sprite/3)*3;
         var price = (bought_list.sprite-parseInt(bought_list.sprite/3))*3+'元'+'（原价：'+bought_list.sprite *3+"元）";
         $("#payment_page").find('td#sprite_count').text(price);
     }else{
