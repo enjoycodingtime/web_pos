@@ -1,4 +1,4 @@
-var show_head_bar = function(){
+var button_click = function(){
     $("#product_list").hide();
     $("#shopping_car").hide();
     $("#payment_page").hide();
@@ -13,9 +13,7 @@ var show_head_bar = function(){
         $("#payment_page").hide();
         $("#home").hide();
         $("#shopping_car").show();
-        show_list(bought_list);
-        change_num();
-
+        shopping_cart(bought_list);
     });
     $('#bar').find('#index').on('click',function(){
         $("#product_list").hide();
@@ -30,5 +28,24 @@ var show_head_bar = function(){
         $("#shopping_car").hide();
         $("#product_list").show();
         product_list();
+    });
+    $('#shopping_car ').find('#payment').on('click', function () {
+        var time = new Time().get_time();
+        $("#home").hide();
+        $("#shopping_car").hide();
+        $("#product_list").hide();
+        $("#payment_page").show()
+            .find('#time').text(time);
+        show_payment();
+    });
+
+    $('#payment_page').find('#pay').on('click', function () {
+        initialization();
+        $("#payment_page").hide();
+        $("#home").hide();
+        $("#shopping_car").hide();
+        $("#product_list").show();
+        product_list();
+        refresh_car_num();
     });
 };

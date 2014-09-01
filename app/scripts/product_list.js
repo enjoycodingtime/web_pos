@@ -1,7 +1,8 @@
 var product_list = function(){
     var allItems = loadAllItems(),
         button = '<button type="button" class="btn btn-info">加入购物车</button>';
-    $("#product_list").find("table").html($("#product_list").find("tr").first().html());
+    var bar =$("#product_list").find("tr").first().html();
+    $("#product_list").find("table").html('<tr>'+bar+'</tr>');
     _(allItems).each(function(item){
         var table_row = "<tr>"+
             "<td>"+item.sort+"</td>"+
@@ -23,7 +24,20 @@ var add_num = function(item){
     lists[item] = parseInt(lists[item])+1;
     localStorage.lists = JSON.stringify(lists);
 };
+var lower_num = function(item){
+    var lists = JSON.parse(localStorage.lists );
+    if(lists[item] == 1){
+        alert("can't lower because the number is 1");
+        return;
+    }
+    lists[item] = parseInt(lists[item])-1;
+    localStorage.lists = JSON.stringify(lists);
+};
 var refresh_car_num = function(){
-    var car_number = +$('#bar').find('#car_number').text()+1;
-    $('#bar').find('#car_number').text(car_number);
+    var lists = JSON.parse(localStorage.lists );
+    var num = 0;
+     _(lists).each(function(list){
+        num = list+num;
+    });
+    $('#bar').find('#car_number').text(num);
 };
