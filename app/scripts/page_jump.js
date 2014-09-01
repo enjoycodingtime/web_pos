@@ -5,6 +5,8 @@ var button_click = function(){
     $("#home").find("button").on('click',function(){
         $("#home").hide();
         $("#product_list").show();
+        $('#bar').find('li').removeClass("active");
+        $('#bar').find('li').eq(2).addClass("active");
         product_list();
     });
     $('#bar').find('#shopping_cart').on('click',function(){
@@ -13,12 +15,16 @@ var button_click = function(){
         $("#payment_page").hide();
         $("#home").hide();
         $("#shopping_car").show();
+        $('#bar').find('li').removeClass("active");
+        $('#bar').find('li').eq(3).addClass("active");
         shopping_cart(bought_list);
     });
     $('#bar').find('#index').on('click',function(){
         $("#product_list").hide();
         $("#payment_page").hide();
         $("#shopping_car").hide();
+        $('#bar').find('li').removeClass("active");
+        $('#bar').find('li').eq(1).addClass("active");
         $("#home").show();
     });
 
@@ -27,6 +33,8 @@ var button_click = function(){
         $("#home").hide();
         $("#shopping_car").hide();
         $("#product_list").show();
+        $('#bar').find('li').removeClass("active");
+        $('#bar').find('li').eq(2).addClass("active");
         product_list();
     });
     $('#shopping_car ').find('#payment').on('click', function () {
@@ -34,6 +42,8 @@ var button_click = function(){
         $("#home").hide();
         $("#shopping_car").hide();
         $("#product_list").hide();
+        $('#bar').find('li').removeClass("active");
+        $('#bar').find('li').eq(3).addClass("active");
         $("#payment_page").show()
             .find('#time').text(time);
         show_payment();
@@ -45,6 +55,8 @@ var button_click = function(){
         $("#home").hide();
         $("#shopping_car").hide();
         $("#product_list").show();
+        $('#bar').find('li').removeClass("active");
+        $('#bar').find('li').eq(2).addClass("active");
         product_list();
         refresh_car_num();
     });

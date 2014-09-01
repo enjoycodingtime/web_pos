@@ -3,7 +3,8 @@ var shopping_cart = function(bought_list){
         lower_button = '<button type="button" class="btn btn-default">-</button>',
         add_button = '<button type="button" class="btn btn-default">+</button>',
         all_count = 0;
-    $("#shopping_car").find("table").html('');
+    var bar =$("#shopping_car").find("tr").first().html();
+    $("#shopping_car").find("table").html('<tr>'+bar+'</tr>');
     allItems = _(allItems).each(function(item){
         item.num = bought_list[item.name];
     });
